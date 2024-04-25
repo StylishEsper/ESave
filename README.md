@@ -14,4 +14,5 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 
 ## Releases
 ### v1.0.0
-
+- [Download Link (No Examples)](https://github.com/StylishEsper/USave/releases/download/v1.0.0/USave_v1.0.0.unitypackage)
+- [Download Link (With Examples)](https://github.com/StylishEsper/USave/releases/download/v1.0.0/USave_v1.0.0_examples_included.unitypackage)
