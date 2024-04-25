@@ -1,0 +1,16 @@
+USave Copyright (c) 2024 Stylish Esper
+
+// EXAMPLE //
+Please open the example scene in StylishEsper/USave/Example/Scenes to understand how USave can be set up.
+
+
+// DOCUMENTATION //
+Or you can check out the documentation available online.
+
+https://stylish-esper.gitbook.io/usave
+
+
+// SUPPORT //
+Feel free to contact me if you have any questions or requests.
+
+https://stylishesper.com/contact
