@@ -3,7 +3,7 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 
 ## Features
 - Save any serializable data type
-- Supports saving some Unity types (such as Vector, Quaternion, and Transform)
+- Supports saving some Unity types (such as Vector, Quaternion, Color, and Transform)
 - Supports unlimited saves
 - Easilly allow the player to create new saves during runtime
 - AES encrypt all save files (or only those you choose)
