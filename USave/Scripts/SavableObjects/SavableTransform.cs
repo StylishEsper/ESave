@@ -12,7 +12,9 @@ namespace Esper.USave.SavableObjects
     public class SavableTransform
     {
         public float[] position;
+        public float[] localPosition;
         public float[] rotation;
+        public float[] localRotation;
         public float[] localScale;
 
         /// <summary>
@@ -30,7 +32,9 @@ namespace Esper.USave.SavableObjects
         public SavableTransform(Transform transform) 
         {
             position = transform.position.ToFloat3();
+            localPosition = transform.localPosition.ToFloat3();
             rotation = transform.rotation.ToFloat4();
+            localRotation = transform.localRotation.ToFloat4();
             localScale = transform.localScale.ToFloat3();
         }
     }

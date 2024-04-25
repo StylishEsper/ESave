@@ -278,6 +278,16 @@ namespace Esper.USave
         /// </summary>
         /// <param name="id">The ID of the data.</param>
         /// <param name="value">The value of the data.</param>
+        public void AddOrUpdateData(string id, Color value)
+        {
+            AddOrUpdateData(id, value.ToFloat4());
+        }
+
+        /// <summary>
+        /// Adds to or updates save data by ID.
+        /// </summary>
+        /// <param name="id">The ID of the data.</param>
+        /// <param name="value">The value of the data.</param>
         public void AddOrUpdateData(string id, Transform value)
         {
             AddOrUpdateData(id, new SavableTransform(value));
@@ -325,6 +335,15 @@ namespace Esper.USave
         public Quaternion GetQuaternion(string id)
         {
             return GetData<float[]>(id).ToQuaternion();
+        }
+
+        /// <summary>
+        /// Gets color by ID.
+        /// <param name="id">The ID of the data.</param>
+        /// <returns>The data with the ID or null if it doesn't exist.</returns>
+        public Color GetColor(string id)
+        {
+            return GetData<float[]>(id).ToColor();
         }
 
         /// <summary>

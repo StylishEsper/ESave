@@ -1,0 +1,623 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Esper.USave.SavableObjects.SavableObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+  "ObjectPosition0": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -1.34182525,
+          -5.59098148,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -1.34182525,
+          -5.59098148,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.162158221,
+          -0.3410814,
+          -0.867411256,
+          0.323984355
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.162158221,
+          -0.3410814,
+          -0.867411256,
+          0.323984355
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          1.29214275,
+          1.29214275,
+          1.29214275
+        ]
+      }
+    },
+    "id": "ObjectPosition0"
+  },
+  "ObjectColor0": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.42764914,
+        0.269667029,
+        0.440496862,
+        1.0
+      ]
+    },
+    "id": "ObjectColor0"
+  },
+  "ObjectPosition1": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -4.440401,
+          -4.28699446,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -4.440401,
+          -4.28699446,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.1391672,
+          -0.199775577,
+          -0.7927587,
+          -0.5587987
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.1391672,
+          -0.199775577,
+          -0.7927587,
+          -0.5587987
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.6941509,
+          0.6941509,
+          0.6941509
+        ]
+      }
+    },
+    "id": "ObjectPosition1"
+  },
+  "ObjectColor1": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.144008979,
+        0.134621635,
+        0.1878244,
+        1.0
+      ]
+    },
+    "id": "ObjectColor1"
+  },
+  "ObjectPosition2": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -7.16871643,
+          -1.74407732,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -7.16871643,
+          -1.74407732,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.431417346,
+          -0.110256784,
+          -0.758491,
+          0.4758298
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.431417346,
+          -0.110256784,
+          -0.758491,
+          0.4758298
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.996543765,
+          0.996543765,
+          0.996543765
+        ]
+      }
+    },
+    "id": "ObjectPosition2"
+  },
+  "ObjectColor2": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.273595572,
+        0.6342405,
+        0.7880815,
+        1.0
+      ]
+    },
+    "id": "ObjectColor2"
+  },
+  "ObjectPosition3": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          2.880066,
+          2.855159,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          2.880066,
+          2.855159,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.04891933,
+          -0.597984731,
+          0.390922248,
+          0.697997868
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.04891933,
+          -0.597984731,
+          0.390922248,
+          0.697997868
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.986591,
+          0.986591,
+          0.986591
+        ]
+      }
+    },
+    "id": "ObjectPosition3"
+  },
+  "ObjectColor3": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.0596568361,
+        0.067909725,
+        0.0567865632,
+        1.0
+      ]
+    },
+    "id": "ObjectColor3"
+  },
+  "ObjectPosition4": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.92572993,
+          1.02946353,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.92572993,
+          1.02946353,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.334786832,
+          -0.8810607,
+          0.314020842,
+          -0.114195839
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.334786832,
+          -0.8810607,
+          0.314020842,
+          -0.114195839
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.8488625,
+          0.8488625,
+          0.8488625
+        ]
+      }
+    },
+    "id": "ObjectPosition4"
+  },
+  "ObjectColor4": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.0520865656,
+        0.0316833332,
+        0.06075252,
+        1.0
+      ]
+    },
+    "id": "ObjectColor4"
+  },
+  "ObjectPosition5": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -7.24410629,
+          -1.6528126,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -7.24410629,
+          -1.6528126,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.564745,
+          0.08667726,
+          -0.4464377,
+          -0.6886534
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.564745,
+          0.08667726,
+          -0.4464377,
+          -0.6886534
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          1.16987467,
+          1.16987467,
+          1.16987467
+        ]
+      }
+    },
+    "id": "ObjectPosition5"
+  },
+  "ObjectColor5": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.605780959,
+        0.9511006,
+        0.954950333,
+        1.0
+      ]
+    },
+    "id": "ObjectColor5"
+  },
+  "ObjectPosition6": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          3.18023562,
+          1.12375534,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          3.18023562,
+          1.12375534,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.471171767,
+          -0.5713239,
+          -0.5719058,
+          -0.352859735
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.471171767,
+          -0.5713239,
+          -0.5719058,
+          -0.352859735
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.519593358,
+          0.519593358,
+          0.519593358
+        ]
+      }
+    },
+    "id": "ObjectPosition6"
+  },
+  "ObjectColor6": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.5205746,
+        0.384989083,
+        0.424353182,
+        1.0
+      ]
+    },
+    "id": "ObjectColor6"
+  },
+  "ObjectPosition7": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          3.94421959,
+          5.72396755,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          3.94421959,
+          5.72396755,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.161759064,
+          -0.445774376,
+          -0.7199535,
+          -0.506740749
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.161759064,
+          -0.445774376,
+          -0.7199535,
+          -0.506740749
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          1.44848037,
+          1.44848037,
+          1.44848037
+        ]
+      }
+    },
+    "id": "ObjectPosition7"
+  },
+  "ObjectColor7": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.05676015,
+        0.0574168041,
+        0.0395708121,
+        1.0
+      ]
+    },
+    "id": "ObjectColor7"
+  },
+  "ObjectPosition8": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          1.47379291,
+          -4.97155333,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          1.47379291,
+          -4.97155333,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.159849018,
+          -0.3531655,
+          -0.418724656,
+          -0.8212138
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.159849018,
+          -0.3531655,
+          -0.418724656,
+          -0.8212138
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.5370146,
+          0.5370146,
+          0.5370146
+        ]
+      }
+    },
+    "id": "ObjectPosition8"
+  },
+  "ObjectColor8": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.1893219,
+        0.06404761,
+        0.120168693,
+        1.0
+      ]
+    },
+    "id": "ObjectColor8"
+  },
+  "ObjectPosition9": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SavableObjects.SavableTransform, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "position": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -1.7867564,
+          3.73541117,
+          0.0
+        ]
+      },
+      "localPosition": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -1.7867564,
+          3.73541117,
+          0.0
+        ]
+      },
+      "rotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.05977674,
+          0.401117,
+          0.8010344,
+          -0.440313429
+        ]
+      },
+      "localRotation": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          -0.05977674,
+          0.401117,
+          0.8010344,
+          -0.440313429
+        ]
+      },
+      "localScale": {
+        "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+        "$values": [
+          0.9688357,
+          0.9688357,
+          0.9688357
+        ]
+      }
+    },
+    "id": "ObjectPosition9"
+  },
+  "ObjectColor9": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "System.Single[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+      "$values": [
+        0.543887,
+        0.862641,
+        0.352519453,
+        1.0
+      ]
+    },
+    "id": "ObjectColor9"
+  }
+}

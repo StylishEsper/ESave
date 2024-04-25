@@ -15,7 +15,7 @@ namespace Esper.USave
         /// Converts a Vector2 to a float array.
         /// </summary>
         /// <param name="v2">This Vector2.</param>
-        /// <returns>Vector2 converted to a float array.</returns>
+        /// <returns>Float array that represents the vector.</returns>
         public static float[] ToFloat2(this Vector2 v2)
         {
             return new float[] { v2.x, v2.y };
@@ -25,7 +25,7 @@ namespace Esper.USave
         /// Converts a Vector3 to a float array.
         /// </summary>
         /// <param name="v3">This Vector3.</param>
-        /// <returns>Vector3 converted to a float array.</returns>
+        /// <returns>Float array that represents the vector.</returns>
         public static float[] ToFloat2(this Vector3 v3)
         {
             return new float[] { v3.x, v3.y };
@@ -35,7 +35,7 @@ namespace Esper.USave
         /// Converts a float array to a Vector2.
         /// </summary>
         /// <param name="f2">This float array.</param>
-        /// <returns>Float array converted to Vector2.</returns>
+        /// <returns>Vector2 that represents the float array.</returns>
         public static Vector2 ToVector2(this float[] f2)
         {
             return new Vector2(f2[0], f2[1]);
@@ -45,7 +45,7 @@ namespace Esper.USave
         /// Converts a Vector3 to a float array.
         /// </summary>
         /// <param name="v3">This Vector3.</param>
-        /// <returns>Vector3 converted to a float array.</returns>
+        /// <returns>Float array that represents the vector.</returns>
         public static float[] ToFloat3(this Vector3 v3)
         {
             return new float[] { v3.x, v3.y, v3.z };
@@ -55,7 +55,7 @@ namespace Esper.USave
         /// Converts a Vector2 to a float array.
         /// </summary>
         /// <param name="v2">This Vector2.</param>
-        /// <returns>Vector2 converted to a float array.</returns>
+        /// <returns>Float array that represents the vector.</returns>
         public static float[] ToFloat3(this Vector2 v2)
         {
             return new float[] { v2.x, v2.y, 0 };
@@ -65,7 +65,7 @@ namespace Esper.USave
         /// Converts a float array to a Vector3.
         /// </summary>
         /// <param name="f3">This float array.</param>
-        /// <returns>Float array converted to Vector3.</returns>
+        /// <returns>Vector3 that represents the float array.</returns>
         public static Vector3 ToVector3(this float[] f3)
         {
             return new Vector3(f3[0], f3[1], f3[2]);
@@ -75,7 +75,7 @@ namespace Esper.USave
         /// Converts a Quaternion to float array.
         /// </summary>
         /// <param name="q">This quaternion.</param>
-        /// <returns>Quaternion converted to a float array.</returns>
+        /// <returns>Float array that represents the quaternion.</returns>
         public static float[] ToFloat4(this Quaternion q)
         {
             return new float[] { q.x, q.y, q.z, q.w };
@@ -85,10 +85,50 @@ namespace Esper.USave
         /// Converts a float array to a Quaternion.
         /// </summary>
         /// <param name="f4">This float array.</param>
-        /// <returns>Float array converted to Quaternion.</returns>
+        /// <returns>Quaternion that represents the float array.</returns>
         public static Quaternion ToQuaternion(this float[] f4)
         {
             return new Quaternion(f4[0], f4[1], f4[2], f4[3]);
+        }
+
+        /// <summary>
+        /// Converts a color to a float array.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <returns>Float array that represents the color.</returns>
+        public static float[] ToFloat4(this Color color)
+        {
+            return new float[] { color.r, color.g, color.b, color.a };
+        }
+
+        /// <summary>
+        /// Converts a color to a float array.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        /// <returns>Float array that represents the color.</returns>
+        public static float[] ToFloat3(this Color color)
+        {
+            return new float[] { color.r, color.g, color.b };
+        }
+
+        /// <summary>
+        /// Converts a float array to a color.
+        /// </summary>
+        /// <param name="fN">The float array.</param>
+        /// <returns>Color that represents the float array.</returns>
+        public static Color ToColor(this float[] fN)
+        {
+            if (fN.Length == 3)
+            {
+                return new Color(fN[0], fN[1], fN[2]);
+            }
+            else if (fN.Length == 4)
+            {
+                return new Color(fN[0], fN[1], fN[2], fN[3]);
+            }
+
+            Debug.LogWarning("Float array is not a valid color.");
+            return new Color();
         }
 
         /// <summary>
@@ -99,7 +139,9 @@ namespace Esper.USave
         public static void CopyTransformValues(this Transform transform, Transform other)
         {
             transform.position = other.position;
+            transform.localPosition = other.localPosition;
             transform.rotation = other.rotation;
+            transform.localRotation = other.localRotation;
             transform.localScale = other.localScale;
         }
 
@@ -111,7 +153,9 @@ namespace Esper.USave
         public static void CopyTransformValues(this Transform transform, SavableTransform other)
         {
             transform.position = other.position.ToVector3();
+            transform.localPosition = other.localPosition.ToVector3();
             transform.rotation = other.rotation.ToQuaternion();
+            transform.localRotation = other.localRotation.ToQuaternion();
             transform.localScale = other.localScale.ToVector3();
         }
     }

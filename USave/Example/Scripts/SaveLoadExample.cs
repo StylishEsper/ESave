@@ -4,27 +4,28 @@
 // Description: Save/load example for sample game.
 //***************************************************************************************
 
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Esper.USave.Example
 {
     public class SaveLoadExample : MonoBehaviour
     {
-        private const string playerPositionDataKey = "PlayerPosition";
-        private const string distanceTraveledDataKey = "DistanceTraveled";
+        private const string objectPositionDataKey = "ObjectPosition";
+        private const string objectColorDataKey = "ObjectColor";
 
         [SerializeField]
-        private CharacterController characterController;
-        [SerializeField]
-        private TextMeshProUGUI distanceText;
+        private SpriteRenderer[] sprites;
 
         private SaveFileSetup saveFileSetup;
         private SaveFile saveFile;
 
-        private Vector3 prevPlayerPosition;
+        private List<Vector3> randomPositions = new();
+        private List<Quaternion> randomRotations = new();
+        private List<Vector3> randomScales = new();
+        private List<Color> randomColors = new();
 
-        private float distanceTraveled;
+        private float timeElapsed;
 
         private void Start()
         {
@@ -38,9 +39,44 @@ namespace Esper.USave.Example
 
         private void Update()
         {
-            distanceTraveled += Vector3.Distance(prevPlayerPosition, characterController.transform.position);
-            distanceText.text = $"Distance Traveled: {distanceTraveled}";
-            prevPlayerPosition = characterController.transform.position;
+            // Lerp each object to a state
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                sprites[i].transform.position = Vector3.Lerp(sprites[i].transform.position, randomPositions[i], timeElapsed);
+                sprites[i].transform.rotation = Quaternion.Lerp(sprites[i].transform.rotation, randomRotations[i], timeElapsed);
+                sprites[i].transform.localScale = Vector3.Lerp(sprites[i].transform.localScale, randomScales[i], timeElapsed);
+                sprites[i].color = Color.Lerp(sprites[i].color, randomColors[i], timeElapsed);
+            }
+
+            if (timeElapsed >= 1)
+            {
+                GenerateRandomStates();
+                timeElapsed = 0;
+            }
+            else
+            {
+                timeElapsed += Time.deltaTime * 0.4f;
+            }
+        }
+
+        /// <summary>
+        /// Generates random states for each sprite.
+        /// </summary>
+        public void GenerateRandomStates()
+        {
+            randomPositions.Clear();
+            randomRotations.Clear();
+            randomScales.Clear();
+            randomColors.Clear();
+
+            // Randomly get new state for each
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                randomPositions.Add(Random.insideUnitCircle * 8);
+                randomRotations.Add(Random.rotation);
+                randomScales.Add(Vector3.one * Random.Range(0.5f, 1.5f));
+                randomColors.Add(Random.ColorHSV());
+            }
         }
 
         /// <summary>
@@ -48,27 +84,33 @@ namespace Esper.USave.Example
         /// </summary>
         public void LoadGame()
         {
-            // Temporarily character controller so it doesn't override the position
-            characterController.enabled = false;
-
-            if (saveFile.HasData(distanceTraveledDataKey))
+            for (int i = 0; i < sprites.Length; i++)
             {
-                distanceTraveled = saveFile.GetData<float>(distanceTraveledDataKey);
+                string positionKey = objectPositionDataKey + i;
+                string colorKey = objectColorDataKey + i;
+
+                if (saveFile.HasData(positionKey))
+                {
+                    // Get Vector3 from a special method because Vector3 is not savable data
+                    var savableTransform = saveFile.GetTransform(positionKey);
+                    sprites[i].transform.CopyTransformValues(savableTransform);
+                }
+
+                if (saveFile.HasData(colorKey))
+                {
+                    sprites[i].color = saveFile.GetColor(colorKey);
+                }
             }
 
-            if (saveFile.HasData(playerPositionDataKey))
+            // Populate lists with current state
+            for (int i = 0; i < sprites.Length; i++)
             {
-                // Get Vector3 from a special method because Vector3 is not savable data
-                //var v3 = saveFile.GetVector3(playerPositionDataKey);
-                //characterController.transform.position = v3;
-
-                var savableTransform = saveFile.GetTransform(playerPositionDataKey);
-                characterController.transform.CopyTransformValues(savableTransform);
+                var sprite = sprites[i];
+                randomPositions.Add(sprite.transform.position);
+                randomRotations.Add(sprite.transform.rotation);
+                randomScales.Add(sprite.transform.localScale);
+                randomColors.Add(sprite.color);
             }
-
-            prevPlayerPosition = characterController.transform.position;
-
-            characterController.enabled = true;
 
             Debug.Log("Loaded game.");
         }
@@ -78,8 +120,12 @@ namespace Esper.USave.Example
         /// </summary>
         public void SaveGame()
         {
-            saveFile.AddOrUpdateData(distanceTraveledDataKey, distanceTraveled);
-            saveFile.AddOrUpdateData(playerPositionDataKey, characterController.transform);
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                saveFile.AddOrUpdateData(objectPositionDataKey + i, sprites[i].transform);
+                saveFile.AddOrUpdateData(objectColorDataKey + i, sprites[i].color);
+            }
+
             saveFile.Save();
 
             Debug.Log("Saved game.");
