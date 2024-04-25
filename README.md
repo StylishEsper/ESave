@@ -1,6 +1,8 @@
 # USave
 Your ultimate, cost-free solution for seamless saving and loading in your game development projects. Whether you're a seasoned developer or just starting out, this tool empowers you to effortlessly manage game data with ease.
 
+[Documentation](https://stylish-esper.gitbook.io/usave/) | [Support](https://www.stylishesper.com/contact)
+
 ## Features
 - Save any serializable data type
 - Supports saving some Unity types (such as Vector, Quaternion, Color, and Transform)
@@ -11,3 +13,5 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 - Choose different paths for each save file
 
 ## Releases
+### v1.0.0
+
