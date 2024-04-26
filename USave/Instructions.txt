@@ -7,7 +7,7 @@ Please open the example scene in StylishEsper/USave/Example/Scenes to understand
 // DOCUMENTATION //
 Or you can check out the documentation available online.
 
-https://stylish-esper.gitbook.io/usave
+https://stylishesper.gitbook.io/usave
 
 
 // SUPPORT //
