@@ -6,7 +6,7 @@
 
 using UnityEngine;
 
-namespace Eseper.USave.Example
+namespace Esper.USave.Example
 {
     [ExecuteInEditMode]
     public class BillboardSprite : MonoBehaviour
