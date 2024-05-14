@@ -5,7 +5,11 @@
 //***************************************************************************************
 
 using Esper.USave.SavableObjects;
+
+#if INSTALLED_NEWTONSOFTJSON
 using Newtonsoft.Json;
+#endif
+
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -132,8 +136,11 @@ namespace Esper.USave
         /// </summary>
         public void Save() 
         {
+#if INSTALLED_NEWTONSOFTJSON
             if (isJson) 
             {
+
+
                 var jsonSerializerSettings = new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All,
@@ -141,6 +148,7 @@ namespace Esper.USave
                 };
 
                 string json = JsonConvert.SerializeObject(saveData, Formatting.Indented, jsonSerializerSettings);
+
 
                 // Encryption method
                 switch (encryptionMethod)
@@ -160,6 +168,7 @@ namespace Esper.USave
             }
 
             Debug.Log(fullPath);
+#endif
         }
 
         /// <summary>
@@ -167,6 +176,7 @@ namespace Esper.USave
         /// </summary>
         public void Load()
         {
+#if INSTALLED_NEWTONSOFTJSON
             // Create new file if one doesn't exist
             if (!File.Exists(fullPath))
             {
@@ -208,6 +218,7 @@ namespace Esper.USave
                     saveData = new();
                 }
             }
+#endif
         }
 
         /// <summary>

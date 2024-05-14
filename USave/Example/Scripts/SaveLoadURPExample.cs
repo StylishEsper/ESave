@@ -11,6 +11,7 @@ namespace Esper.USave.Example
 {
     public class SaveLoadURPExample : MonoBehaviour
     {
+        // Const data IDs 
         private const string playerPositionDataKey = "PlayerPosition";
         private const string distanceTraveledDataKey = "DistanceTraveled";
 
@@ -48,7 +49,7 @@ namespace Esper.USave.Example
         /// </summary>
         public void LoadGame()
         {
-            // Temporarily character controller so it doesn't override the position
+            // Temporarily disable character controller so it doesn't override the position
             characterController.enabled = false;
 
             if (saveFile.HasData(distanceTraveledDataKey))

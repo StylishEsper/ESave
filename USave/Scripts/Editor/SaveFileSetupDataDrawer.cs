@@ -75,6 +75,12 @@ namespace Esper.USave.Editor
                     aesIV.stringValue = EditorGUI.TextField(aesIVRect, "AES IV", aesIV.stringValue);
                 }
 
+                y += lineSpacing;
+                propertyHeight += lineSpacing;
+                var addToStorageRect = new Rect(x, y, position.width - indent, EditorGUIUtility.singleLineHeight);
+                var addToStorage = property.FindPropertyRelative("addToStorage");
+                addToStorage.boolValue = EditorGUI.Toggle(addToStorageRect, "Add to Storage", addToStorage.boolValue);
+
                 EditorGUI.EndProperty();
             }
         }

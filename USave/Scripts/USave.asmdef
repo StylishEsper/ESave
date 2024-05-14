@@ -1,0 +1,20 @@
+{
+    "name": "USave",
+    "rootNamespace": "",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.nuget.newtonsoft-json",
+            "expression": "0",
+            "define": "INSTALLED_NEWTONSOFTJSON"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1677,7 +1677,7 @@ MonoBehaviour:
   saveFileData:
     fileName: GameName_SavePaths
     saveLocation: 1
-    filePath: GameName_Saves
+    filePath: StylishEsper/USave/Example
     fileType: 0
     encryptionMethod: 0
     aesKey: 
@@ -2599,14 +2599,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveFileData:
-    fileName: ExampleSave
+    fileName: URP_Example_Save
     saveLocation: 1
     filePath: StylishEsper/USave/Example
     fileType: 0
     encryptionMethod: 1
     aesKey: 8UdcN0STb0uOhR3M
     aesIV: LJ9vQCAgUGMlTgDb
-    addToStorage: 0
+    addToStorage: 1
 --- !u!1 &1148993095
 GameObject:
   m_ObjectHideFlags: 0

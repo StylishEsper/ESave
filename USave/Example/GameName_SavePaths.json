@@ -1,0 +1,18 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Esper.USave.SavableObjects.SavableObject, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+  "URP_Example_Save": {
+    "$type": "Esper.USave.SavableObjects.SavableData`1[[Esper.USave.SaveFileSetupData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "value": {
+      "$type": "Esper.USave.SaveFileSetupData, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "fileName": "URP_Example_Save",
+      "saveLocation": 1,
+      "filePath": "StylishEsper/USave/Example",
+      "fileType": 0,
+      "encryptionMethod": 1,
+      "aesKey": "8UdcN0STb0uOhR3M",
+      "aesIV": "LJ9vQCAgUGMlTgDb",
+      "addToStorage": true
+    },
+    "id": "URP_Example_Save"
+  }
+}
