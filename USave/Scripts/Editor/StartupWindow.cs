@@ -29,14 +29,14 @@ namespace Esper.USave.Editor
             var isAlreadyShown = SessionState.GetBool(alreadyShownKey, false);
             if (!isAlreadyShown)
             {
-                ShowWelcomeWindow();
+                ShowInstallerWindow();
                 SessionState.SetBool(alreadyShownKey, true);
             }
 
             EditorApplication.delayCall -= ShowOnStartup;
         }
 
-        public static void ShowWelcomeWindow()
+        public static void ShowInstallerWindow()
         {
 #if !INSTALLED_NEWTONSOFTJSON
             window = GetWindow<StartupWindow>();
@@ -44,6 +44,15 @@ namespace Esper.USave.Editor
             window.minSize = window.maxSize;
             window.titleContent = new GUIContent("Newtonsoft JSON Installer");
 #endif
+        }
+
+        [MenuItem("Window/USave/Install Newtonsoft JSON")]
+        public static void ShowInstallerWindowMenu()
+        {
+            window = GetWindow<StartupWindow>();
+            window.maxSize = new Vector2(500f, 100f);
+            window.minSize = window.maxSize;
+            window.titleContent = new GUIContent("Newtonsoft JSON Installer");
         }
 
         private void OnGUI()
@@ -56,7 +65,6 @@ namespace Esper.USave.Editor
             }
         }
 
-        [MenuItem("Window/USave/Install Newtonsoft JSON")]
         private static void InstallNewtonsoftJSON()
         {
             request = Client.Add("com.unity.nuget.newtonsoft-json");
