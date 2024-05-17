@@ -4,6 +4,7 @@
 // Description: Save file setup custom editor.
 //***************************************************************************************
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -38,3 +39,4 @@ namespace Esper.USave.Editor
         }
     }
 }
+#endif

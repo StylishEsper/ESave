@@ -4,6 +4,7 @@
 // Description: Save file setup data custom property drawer.
 //***************************************************************************************
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -91,4 +92,4 @@ namespace Esper.USave.Editor
         }
     }
 }
-
+#endif

@@ -4,6 +4,7 @@
 // Description: Startup window and Newtonsoft JSON installer.
 //***************************************************************************************
 
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.PackageManager.Requests;
@@ -90,3 +91,4 @@ namespace Esper.USave.Editor
         }
     }
 }
+#endif

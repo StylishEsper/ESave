@@ -139,8 +139,6 @@ namespace Esper.USave
 #if INSTALLED_NEWTONSOFTJSON
             if (isJson) 
             {
-
-
                 var jsonSerializerSettings = new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All,
@@ -180,7 +178,11 @@ namespace Esper.USave
             // Create new file if one doesn't exist
             if (!File.Exists(fullPath))
             {
-                Directory.CreateDirectory(directory);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+
                 Save();
             }
             

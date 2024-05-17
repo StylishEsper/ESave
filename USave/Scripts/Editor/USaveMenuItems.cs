@@ -4,6 +4,7 @@
 // Description: Custom create menu options for USave.
 //***************************************************************************************
 
+#if UNITY_EDITOR
 using Esper.USave.Encryption;
 using UnityEditor;
 using UnityEngine;
@@ -51,4 +52,4 @@ namespace Esper.USave.Editor
         }
     }
 }
-
+#endif
