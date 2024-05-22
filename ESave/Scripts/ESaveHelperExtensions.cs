@@ -1,15 +1,15 @@
 //***************************************************************************************
 // Writer: Stylish Esper
 // Last Updated: April 2024
-// Description: USave helper extensions.
+// Description: ESave helper extensions.
 //***************************************************************************************
 
-using Esper.USave.SavableObjects;
+using Esper.ESave.SavableObjects;
 using UnityEngine;
 
-namespace Esper.USave
+namespace Esper.ESave
 {
-    public static class USaveHelperExtensions
+    public static class ESaveHelperExtensions
     {
         /// <summary>
         /// Converts a Vector2 to a float array.

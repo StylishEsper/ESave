@@ -4,7 +4,7 @@
 // Description: Savable data object. Supports any type, but not all types can be saved.
 //***************************************************************************************
 
-namespace Esper.USave.SavableObjects
+namespace Esper.ESave.SavableObjects
 {
     [System.Serializable]
     public class SavableData<T> : SavableObject

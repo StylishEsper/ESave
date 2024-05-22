@@ -1,18 +1,19 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: March 2024
+// Last Updated: May 2024
 // Description: Manages all saves.
 //***************************************************************************************
 
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
-namespace Esper.USave
+namespace Esper.ESave
 {
     [RequireComponent(typeof(SaveFileSetup))]
     public class SaveStorage : MonoBehaviour
     {
-        private Dictionary<string, SaveFile> saves = new();
+        public Dictionary<string, SaveFile> saves = new();
         private SaveFile savePathsFile;
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace Esper.USave
                 var allData = savePathsFile.GetAllDataOfType<SaveFileSetupData>();
                 foreach (var data in allData)
                 {
-                    new SaveFile(data);
+                    new SaveFile(data, true);
                 }
             }
             else
@@ -63,12 +64,7 @@ namespace Esper.USave
 
             saves.Add(saveFile.fileName, saveFile);
 
-            // Add to saved paths file
-            if (!savePathsFile.HasData(saveFile.fileName))
-            {
-                savePathsFile.AddOrUpdateData(saveFile.fileName, saveFile.GetSetupData());
-                savePathsFile.Save();
-            }
+            AddToSavedPaths(saveFile);
         }
 
         /// <summary>
@@ -85,7 +81,28 @@ namespace Esper.USave
 
             saves.Remove(saveFile.fileName);
 
-            // Remove from saved paths file
+            RemoveFromSavedPaths(saveFile);
+        }
+
+        /// <summary>
+        /// Adds a save file's path to a file containing a list of all save file paths.
+        /// </summary>
+        /// <param name="saveFile">The save file.</param>
+        public void AddToSavedPaths(SaveFile saveFile)
+        {
+            if (!savePathsFile.HasData(saveFile.fileName))
+            {
+                savePathsFile.AddOrUpdateData(saveFile.fileName, saveFile.GetSetupData());
+                savePathsFile.Save();
+            }
+        }
+
+        /// <summary>
+        /// Removes a save file's path from a file containing a list of all save file paths.
+        /// </summary>
+        /// <param name="saveFile">The save file.</param>
+        public void RemoveFromSavedPaths(SaveFile saveFile)
+        {
             if (savePathsFile.HasData(saveFile.fileName))
             {
                 savePathsFile.DeleteData(saveFile.fileName);

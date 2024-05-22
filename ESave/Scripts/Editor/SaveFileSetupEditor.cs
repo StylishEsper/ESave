@@ -8,7 +8,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Esper.USave.Editor
+namespace Esper.ESave.Editor
 {
     [CustomEditor(typeof(SaveFileSetup))]
     public class SaveFileSetupEditor : UnityEditor.Editor

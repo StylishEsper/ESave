@@ -6,7 +6,7 @@
 
 using System;
 
-namespace Esper.USave.SavableObjects
+namespace Esper.ESave.SavableObjects
 {
     [Serializable]
     public class SavableObject

@@ -1,10 +1,10 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
+// Last Updated: May 2024
 // Description: A save file contains savable data.
 //***************************************************************************************
 
-using Esper.USave.SavableObjects;
+using Esper.ESave.SavableObjects;
 
 #if INSTALLED_NEWTONSOFTJSON
 using Newtonsoft.Json;
@@ -13,10 +13,10 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using static Esper.USave.SaveFileSetupData;
-using Esper.USave.Encryption;
+using static Esper.ESave.SaveFileSetupData;
+using Esper.ESave.Encryption;
 
-namespace Esper.USave
+namespace Esper.ESave
 {
     public class SaveFile
     {
@@ -77,10 +77,11 @@ namespace Esper.USave
         /// Constructor.
         /// </summary>
         /// <param name="saveFileData">The save file data.</param>
-        public SaveFile(SaveFileSetupData saveFileData)
+        /// <param name="shouldExist">If this save file should already exist in the user's system.</param>
+        public SaveFile(SaveFileSetupData saveFileData, bool shouldExist)
         {
             this.saveFileData = saveFileData;
-            SetupFile(saveFileData.fileName, saveFileData.saveLocation, saveFileData.fileType, saveFileData.addToStorage);
+            SetupFile(saveFileData.fileName, saveFileData.saveLocation, saveFileData.fileType, saveFileData.addToStorage, shouldExist);
         }
 
         /// <summary>
@@ -90,7 +91,8 @@ namespace Esper.USave
         /// <param name="saveLocation">Save location.</param>
         /// <param name="fileType">File type.</param>
         /// <param name="addToStorage">If this save file should be added to save storage.</param>
-        public void SetupFile(string fileName, SaveLocation saveLocation, FileType fileType, bool addToStorage = true)
+        /// <param name="shouldExist">If this save file should already exist in the user's system.</param>
+        public void SetupFile(string fileName, SaveLocation saveLocation, FileType fileType, bool addToStorage = true, bool shouldExist = false)
         {
             switch (saveLocation)
             {
@@ -109,12 +111,21 @@ namespace Esper.USave
                      break;
             }
 
-            Load();
-
             if (addToStorage && !SaveStorage.instance.ContainsKey(fileName))
             {
-                SaveStorage.instance.AddSave(this);
+                // Ensure the file still exists and if not, remove the path from storage
+                if (!File.Exists(fullPath) && shouldExist)
+                {
+                    SaveStorage.instance.RemoveFromSavedPaths(this);
+                    return;
+                }
+                else
+                {
+                    SaveStorage.instance.AddSave(this);
+                }
             }
+
+            Load();
         }
 
         /// <summary>

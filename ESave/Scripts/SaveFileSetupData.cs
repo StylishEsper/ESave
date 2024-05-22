@@ -4,9 +4,9 @@
 // Description: Save file data.
 //***************************************************************************************
 
-using Esper.USave.Encryption;
+using Esper.ESave.Encryption;
 
-namespace Esper.USave
+namespace Esper.ESave
 {
     [System.Serializable]
     public class SaveFileSetupData

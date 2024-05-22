@@ -9,7 +9,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Esper.USave.Encryption
+namespace Esper.ESave.Encryption
 {
     public static class USaveEncryption
     {

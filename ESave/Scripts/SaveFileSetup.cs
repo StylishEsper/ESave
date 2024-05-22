@@ -1,12 +1,12 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
+// Last Updated: May 2024
 // Description: Sets up a save file.
 //***************************************************************************************
 
 using UnityEngine;
 
-namespace Esper.USave
+namespace Esper.ESave
 {
     public class SaveFileSetup : MonoBehaviour
     {
@@ -36,12 +36,12 @@ namespace Esper.USave
         /// <summary>
         /// Gets the save file.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The save file.</returns>
         public SaveFile GetSaveFile()
         {
             if (saveFile == null)
             {
-                saveFile = new SaveFile(saveFileData);
+                saveFile = new SaveFile(saveFileData, false);
             }
 
             return saveFile;

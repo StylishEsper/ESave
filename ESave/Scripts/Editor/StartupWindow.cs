@@ -10,7 +10,7 @@ using UnityEngine;
 using UnityEditor.PackageManager.Requests;
 using UnityEditor.PackageManager;
 
-namespace Esper.USave.Editor
+namespace Esper.ESave.Editor
 {
     [InitializeOnLoad]
     public class StartupWindow : EditorWindow

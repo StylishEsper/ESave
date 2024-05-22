@@ -8,7 +8,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Esper.USave.Editor
+namespace Esper.ESave.Editor
 {
     [CustomPropertyDrawer(typeof(SaveFileSetupData))]
     public class SaveFileSetupDataDrawer : PropertyDrawer

@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Esper.USave.Example
+namespace Esper.ESave.Example
 {
     public class SaveLoadExample : MonoBehaviour
     {

@@ -5,15 +5,15 @@
 //***************************************************************************************
 
 #if UNITY_EDITOR
-using Esper.USave.Encryption;
+using Esper.ESave.Encryption;
 using UnityEditor;
 using UnityEngine;
 
-namespace Esper.USave.Editor
+namespace Esper.ESave.Editor
 {
-    public static class USaveMenuItems
+    public static class ESaveMenuItems
     {
-        [MenuItem("GameObject/USave/Save File")]
+        [MenuItem("GameObject/ESave/Save File")]
         private static void CreateSaveFile()
         {
             GameObject go = ObjectFactory.CreateGameObject("SaveFile", typeof(SaveFileSetup));
@@ -32,7 +32,7 @@ namespace Esper.USave.Editor
             Selection.activeGameObject = go;
         }
 
-        [MenuItem("GameObject/USave/Save Storage")]
+        [MenuItem("GameObject/ESave/Save Storage")]
         private static void CreateSaveStorage()
         {
             GameObject storage = ObjectFactory.CreateGameObject("SaveStorage", typeof(SaveStorage));
