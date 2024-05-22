@@ -1,7 +1,7 @@
-# USave
+# ESave
 Your ultimate, cost-free solution for seamless saving and loading in your game development projects. Whether you're a seasoned developer or just starting out, this tool empowers you to effortlessly manage game data with ease.
 
-[Documentation](https://stylishesper.gitbook.io/usave/) | [Support](https://www.stylishesper.com/contact)
+[Documentation](https://stylishesper.gitbook.io/esave/) | [Support](https://www.stylishesper.com/contact)
 
 ## Features
 - Save any serializable data type
@@ -14,4 +14,4 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 
 ## Releases
 ### v1.0.0
-- [Download Link](https://github.com/StylishEsper/USave/releases/download/v1.0.0/USave_v1.0.0.unitypackage)
+- [Download Link](https://github.com/StylishEsper/ESave/releases/download/v1.0.0/ESave_v1.0.0.unitypackage)
