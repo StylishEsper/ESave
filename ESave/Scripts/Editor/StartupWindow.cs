@@ -15,7 +15,7 @@ namespace Esper.ESave.Editor
     [InitializeOnLoad]
     public class StartupWindow : EditorWindow
     {
-        private const string alreadyShownKey = "com.stylishesper.usave.startup_window_shown";
+        private const string alreadyShownKey = "com.stylishesper.esave.startup_window_shown";
 
         private static StartupWindow window;
         private static AddRequest request;
@@ -47,7 +47,7 @@ namespace Esper.ESave.Editor
 #endif
         }
 
-        [MenuItem("Window/USave/Install Newtonsoft JSON")]
+        [MenuItem("Window/ESave/Install Newtonsoft JSON")]
         public static void ShowInstallerWindowMenu()
         {
             window = GetWindow<StartupWindow>();

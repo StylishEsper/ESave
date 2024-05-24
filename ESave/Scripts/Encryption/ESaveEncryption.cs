@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Esper.ESave.Encryption
 {
-    public static class USaveEncryption
+    public static class ESaveEncryption
     {
         /// <summary>
         /// Converts a string to bytes using ASCII encoding.

@@ -21,8 +21,8 @@ namespace Esper.ESave.Editor
             var saveFile = go.GetComponent<SaveFileSetup>();
             saveFile.saveFileData = new SaveFileSetupData("Example_Save",
                 SaveFileSetupData.SaveLocation.DataPath, "Example_Saves", SaveFileSetupData.FileType.Json,
-                SaveFileSetupData.EncryptionMethod.None, USaveEncryption.GenerateRandomToken(16),
-                USaveEncryption.GenerateRandomToken(16), false);
+                SaveFileSetupData.EncryptionMethod.None, ESaveEncryption.GenerateRandomToken(16),
+                ESaveEncryption.GenerateRandomToken(16), false);
 
             if (Selection.activeGameObject)
             {
@@ -40,8 +40,8 @@ namespace Esper.ESave.Editor
             var saveFile = storage.GetComponent<SaveFileSetup>();
             saveFile.saveFileData = new SaveFileSetupData("GameName_SavePaths", 
                 SaveFileSetupData.SaveLocation.DataPath, "GameName_Saves", SaveFileSetupData.FileType.Json, 
-                SaveFileSetupData.EncryptionMethod.None, USaveEncryption.GenerateRandomToken(16), 
-                USaveEncryption.GenerateRandomToken(16), false);
+                SaveFileSetupData.EncryptionMethod.None, ESaveEncryption.GenerateRandomToken(16), 
+                ESaveEncryption.GenerateRandomToken(16), false);
 
             if (Selection.activeGameObject)
             {

@@ -21,12 +21,12 @@ namespace Esper.ESave
     public class SaveFile
     {
         private Dictionary<string, SavableObject> saveData = new();
-        private SaveFileSetupData saveFileData;
+        private SaveFileSetupData saveFileSetupData;
 
         /// <summary>
         /// The file name.
         /// </summary>
-        public string fileName { get => saveFileData.fileName; }
+        public string fileName { get => saveFileSetupData.fileName; }
 
         /// <summary>
         /// The starting file path (either Application.dataPath or Application.persistentDataPath).
@@ -36,7 +36,7 @@ namespace Esper.ESave
         /// <summary>
         /// The path of the file after start path.
         /// </summary>
-        public string filePath { get => saveFileData.filePath; }
+        public string filePath { get => saveFileSetupData.filePath; }
 
         /// <summary>
         /// The file extension.
@@ -56,17 +56,17 @@ namespace Esper.ESave
         /// <summary>
         /// The save location.
         /// </summary>
-        public SaveLocation saveLocation { get => saveFileData.saveLocation; }
+        public SaveLocation saveLocation { get => saveFileSetupData.saveLocation; }
 
         /// <summary>
         /// The data type.
         /// </summary>
-        public FileType dataType { get => saveFileData.fileType; }
+        public FileType dataType { get => saveFileSetupData.fileType; }
 
         /// <summary>
         /// The encryption method.
         /// </summary>
-        public EncryptionMethod encryptionMethod { get => saveFileData.encryptionMethod; }
+        public EncryptionMethod encryptionMethod { get => saveFileSetupData.encryptionMethod; }
 
         /// <summary>
         /// If the data is encoded in json format.
@@ -76,12 +76,12 @@ namespace Esper.ESave
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="saveFileData">The save file data.</param>
+        /// <param name="saveFileSetupData">The save file data.</param>
         /// <param name="shouldExist">If this save file should already exist in the user's system.</param>
-        public SaveFile(SaveFileSetupData saveFileData, bool shouldExist)
+        public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist)
         {
-            this.saveFileData = saveFileData;
-            SetupFile(saveFileData.fileName, saveFileData.saveLocation, saveFileData.fileType, saveFileData.addToStorage, shouldExist);
+            this.saveFileSetupData = saveFileSetupData;
+            SetupFile(saveFileSetupData.fileName, saveFileSetupData.saveLocation, saveFileSetupData.fileType, saveFileSetupData.addToStorage, shouldExist);
         }
 
         /// <summary>
@@ -134,9 +134,9 @@ namespace Esper.ESave
         /// <returns>The save file data or null if it doesn't exist.</returns>
         public SaveFileSetupData GetSetupData()
         {
-            if (saveFileData != null)
+            if (saveFileSetupData != null)
             {
-                return saveFileData;
+                return saveFileSetupData;
             }
 
             return null;
@@ -167,7 +167,7 @@ namespace Esper.ESave
                         break;
 
                     case EncryptionMethod.AES:
-                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileData.aesKey.ToBytes(), saveFileData.aesIV.ToBytes()));
+                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.ToBytes(), saveFileSetupData.aesIV.ToBytes()));
                         break;
 
                    default:
@@ -210,7 +210,7 @@ namespace Esper.ESave
 
                     case EncryptionMethod.AES:
                         var cipher = File.ReadAllBytes(fullPath);
-                        json = cipher.AESDecrypt(saveFileData.aesKey.ToBytes(), saveFileData.aesIV.ToBytes());
+                        json = cipher.AESDecrypt(saveFileSetupData.aesKey.ToBytes(), saveFileSetupData.aesIV.ToBytes());
                         break;
 
                     default:

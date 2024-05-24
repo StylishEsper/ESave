@@ -49,8 +49,8 @@ namespace Esper.ESave
         /// </summary>
         public void GenerateAESTokens()
         {
-            aesKey = USaveEncryption.GenerateRandomToken(16);
-            aesIV = USaveEncryption.GenerateRandomToken(16);
+            aesKey = ESaveEncryption.GenerateRandomToken(16);
+            aesIV = ESaveEncryption.GenerateRandomToken(16);
         }
 
         /// <summary>
