@@ -23,6 +23,14 @@ namespace Esper.ESave
         /// <summary>
         /// Constructor.
         /// </summary>
+        public SaveFileSetupData() 
+        {
+            
+        }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         /// <param name="fileName">Save file name.</param>
         /// <param name="saveLocation">Save location.</param>
         /// <param name="filePath">File path after initial data path.</param>

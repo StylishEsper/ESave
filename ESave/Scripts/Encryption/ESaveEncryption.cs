@@ -40,8 +40,8 @@ namespace Esper.ESave.Encryption
         /// <returns>A randomly generated string.</returns>
         public static string GenerateRandomToken(int maxTokenLength = -1)
         {
-            Guid g = Guid.NewGuid();
-            string guidString = Convert.ToBase64String(g.ToByteArray());
+            Guid guid = Guid.NewGuid();
+            string guidString = Convert.ToBase64String(guid.ToByteArray());
             guidString = guidString.Replace("=", "");
             guidString = guidString.Replace("+", "");
             guidString = guidString.Replace("/", "");

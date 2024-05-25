@@ -77,8 +77,8 @@ namespace Esper.ESave
         /// Constructor.
         /// </summary>
         /// <param name="saveFileSetupData">The save file data.</param>
-        /// <param name="shouldExist">If this save file should already exist in the user's system.</param>
-        public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist)
+        /// <param name="shouldExist">If this save file should already exist in the user's system. Default: true</param>
+        public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist = false)
         {
             this.saveFileSetupData = saveFileSetupData;
             SetupFile(saveFileSetupData.fileName, saveFileSetupData.saveLocation, saveFileSetupData.fileType, saveFileSetupData.addToStorage, shouldExist);
@@ -91,8 +91,8 @@ namespace Esper.ESave
         /// <param name="saveLocation">Save location.</param>
         /// <param name="fileType">File type.</param>
         /// <param name="addToStorage">If this save file should be added to save storage.</param>
-        /// <param name="shouldExist">If this save file should already exist in the user's system.</param>
-        public void SetupFile(string fileName, SaveLocation saveLocation, FileType fileType, bool addToStorage = true, bool shouldExist = false)
+        /// <param name="shouldExist">If this save file should already exist in the user's system. Default: true</param>
+        public void SetupFile(string fileName, SaveLocation saveLocation, FileType fileType, bool addToStorage = true, bool shouldExist = true)
         {
             switch (saveLocation)
             {
