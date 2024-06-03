@@ -6,11 +6,10 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 
 namespace Esper.ESave
 {
-    [RequireComponent(typeof(SaveFileSetup))]
+    [RequireComponent(typeof(SaveFileSetup)), DefaultExecutionOrder(-1)]
     public class SaveStorage : MonoBehaviour
     {
         public Dictionary<string, SaveFile> saves = new();

@@ -1,6 +1,6 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
+// Last Updated: June 2024
 // Description: Save file setup data custom property drawer.
 //***************************************************************************************
 
@@ -81,6 +81,12 @@ namespace Esper.ESave.Editor
                 var addToStorageRect = new Rect(x, y, position.width - indent, EditorGUIUtility.singleLineHeight);
                 var addToStorage = property.FindPropertyRelative("addToStorage");
                 addToStorage.boolValue = EditorGUI.Toggle(addToStorageRect, "Add to Storage", addToStorage.boolValue);
+
+                y += lineSpacing;
+                propertyHeight += lineSpacing;
+                var backgroundTaskRect = new Rect(x, y, position.width - indent, EditorGUIUtility.singleLineHeight);
+                var backgroundTask = property.FindPropertyRelative("backgroundTask");
+                backgroundTask.boolValue = EditorGUI.Toggle(backgroundTaskRect, "Background Task", backgroundTask.boolValue);
 
                 EditorGUI.EndProperty();
             }

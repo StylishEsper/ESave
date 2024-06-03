@@ -19,6 +19,7 @@ namespace Esper.ESave
         public string aesKey;
         public string aesIV;
         public bool addToStorage = true;
+        public bool backgroundTask;
 
         /// <summary>
         /// Constructor.
@@ -39,8 +40,9 @@ namespace Esper.ESave
         /// <param name="aesKey">AES key.</param>
         /// <param name="aesIV">AES IV.</param>
         /// <param name="addToStorage">If this save file should be added to save storage.</param>
+        /// <param name="backgroundTask">If saving and loading data should occur in the background.</param>
         public SaveFileSetupData(string fileName, SaveLocation saveLocation, string filePath, FileType fileType, 
-            EncryptionMethod encryptionMethod, string aesKey, string aesIV,  bool addToStorage)
+            EncryptionMethod encryptionMethod, string aesKey, string aesIV,  bool addToStorage, bool backgroundTask)
         {
             this.fileName = fileName;
             this.saveLocation = saveLocation;
@@ -50,6 +52,7 @@ namespace Esper.ESave
             this.aesKey = aesKey;
             this.aesIV = aesIV;
             this.addToStorage = addToStorage;
+            this.backgroundTask = backgroundTask;
         }
 
         /// <summary>

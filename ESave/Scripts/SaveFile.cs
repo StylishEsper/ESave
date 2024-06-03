@@ -1,6 +1,6 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: May 2024
+// Last Updated: June 2024
 // Description: A save file contains savable data.
 //***************************************************************************************
 
@@ -15,6 +15,7 @@ using System.IO;
 using UnityEngine;
 using static Esper.ESave.SaveFileSetupData;
 using Esper.ESave.Encryption;
+using Esper.ESave.Threading;
 
 namespace Esper.ESave
 {
@@ -22,6 +23,26 @@ namespace Esper.ESave
     {
         private Dictionary<string, SavableObject> saveData = new();
         private SaveFileSetupData saveFileSetupData;
+
+        /// <summary>
+        /// The save location.
+        /// </summary>
+        public SaveLocation saveLocation { get => saveFileSetupData.saveLocation; }
+
+        /// <summary>
+        /// The data type.
+        /// </summary>
+        public FileType dataType { get => saveFileSetupData.fileType; }
+
+        /// <summary>
+        /// The encryption method.
+        /// </summary>
+        public EncryptionMethod encryptionMethod { get => saveFileSetupData.encryptionMethod; }
+
+        /// <summary>
+        /// The active save file operation.
+        /// </summary>
+        public SaveFileOperation operation { get; private set; }
 
         /// <summary>
         /// The file name.
@@ -54,24 +75,16 @@ namespace Esper.ESave
         public string fullPath { get => $"{directory}{fileName}.{fileExtension}"; }
 
         /// <summary>
-        /// The save location.
+        /// If the data should be saved and loaded in the background.
         /// </summary>
-        public SaveLocation saveLocation { get => saveFileSetupData.saveLocation; }
-
-        /// <summary>
-        /// The data type.
-        /// </summary>
-        public FileType dataType { get => saveFileSetupData.fileType; }
-
-        /// <summary>
-        /// The encryption method.
-        /// </summary>
-        public EncryptionMethod encryptionMethod { get => saveFileSetupData.encryptionMethod; }
+        public bool backgroundTask { get => saveFileSetupData.backgroundTask; set => saveFileSetupData.backgroundTask = value; }
 
         /// <summary>
         /// If the data is encoded in json format.
         /// </summary>
         public bool isJson { get => dataType == FileType.Json; }
+
+        public bool isOperationOngoing { get => operation != null && operation.state == SaveFileOperation.OperationState.Ongoing; }
 
         /// <summary>
         /// Constructor.
@@ -81,18 +94,15 @@ namespace Esper.ESave
         public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist = false)
         {
             this.saveFileSetupData = saveFileSetupData;
-            SetupFile(saveFileSetupData.fileName, saveFileSetupData.saveLocation, saveFileSetupData.fileType, saveFileSetupData.addToStorage, shouldExist);
+            SetupFile(shouldExist);
         }
 
         /// <summary>
         /// Sets up the file.
         /// </summary>
-        /// <param name="fileName">Save file name.</param>
-        /// <param name="saveLocation">Save location.</param>
-        /// <param name="fileType">File type.</param>
-        /// <param name="addToStorage">If this save file should be added to save storage.</param>
         /// <param name="shouldExist">If this save file should already exist in the user's system. Default: true</param>
-        public void SetupFile(string fileName, SaveLocation saveLocation, FileType fileType, bool addToStorage = true, bool shouldExist = true)
+        /// <returns>The load operation or null if the file should exist but it doesn't anymore.</returns>
+        private SaveFileOperation SetupFile(bool shouldExist = true)
         {
             switch (saveLocation)
             {
@@ -104,20 +114,20 @@ namespace Esper.ESave
                      break;
             }
 
-            switch (fileType)
+            switch (dataType)
             {
                 case FileType.Json:
                      fileExtension = "json";
                      break;
             }
 
-            if (addToStorage && !SaveStorage.instance.ContainsKey(fileName))
+            if (saveFileSetupData.addToStorage && !SaveStorage.instance.ContainsKey(fileName))
             {
                 // Ensure the file still exists and if not, remove the path from storage
                 if (!File.Exists(fullPath) && shouldExist)
                 {
                     SaveStorage.instance.RemoveFromSavedPaths(this);
-                    return;
+                    return null;
                 }
                 else
                 {
@@ -125,7 +135,7 @@ namespace Esper.ESave
                 }
             }
 
-            Load();
+            return Load();
         }
 
         /// <summary>
@@ -143,17 +153,64 @@ namespace Esper.ESave
         }
 
         /// <summary>
-        /// Saves this file in the user's system.
+        /// Sets the setup data.
         /// </summary>
-        public void Save() 
+        /// <param name="saveFileSetupData">The save file setup data.</param>
+        public void SetSetupData(SaveFileSetupData saveFileSetupData)
+        {
+            this.saveFileSetupData= saveFileSetupData;
+            SetupFile();
+        }
+
+        /// <summary>
+        /// Saves this file in the user's system. The file will be saved in the background
+        /// if backgroundTask is true.
+        /// </summary>
+        /// <returns>The save operation or null if there is an ongoing operation.</returns>
+        public SaveFileOperation Save() 
         {
 #if INSTALLED_NEWTONSOFTJSON
-            if (isJson) 
+            if (isOperationOngoing)
+            {
+                return null;
+            }
+
+            operation = new SaveFileOperation(SaveData, backgroundTask);
+            operation.Start();
+            return operation;
+#endif
+        }
+
+        /// <summary>
+        /// Loads data from the appropriate file in the user's system. The file will be loaded
+        /// in the background if backgroundTask is true.
+        /// </summary>
+        /// <returns>The load operation or null if there is an ongoing operation.</returns>
+        public SaveFileOperation Load()
+        {
+#if INSTALLED_NEWTONSOFTJSON
+            if (isOperationOngoing)
+            {
+                return null;
+            }
+
+            operation = new SaveFileOperation(LoadData, backgroundTask);
+            operation.Start();
+            return operation;
+#endif
+        }
+
+        /// <summary>
+        /// Saves this file in the user's system.
+        /// </summary>
+        private void SaveData()
+        {
+            if (isJson)
             {
                 var jsonSerializerSettings = new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All,
-                    TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full     
+                    TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full
                 };
 
                 string json = JsonConvert.SerializeObject(saveData, Formatting.Indented, jsonSerializerSettings);
@@ -170,22 +227,20 @@ namespace Esper.ESave
                         File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.ToBytes(), saveFileSetupData.aesIV.ToBytes()));
                         break;
 
-                   default:
+                    default:
                         File.WriteAllText(fullPath, json);
                         break;
                 }
             }
 
-            Debug.Log(fullPath);
-#endif
+            Debug.Log($"Save Path: {fullPath}");
         }
 
         /// <summary>
         /// Loads data from the appropriate file in the user's system.
         /// </summary>
-        public void Load()
+        private void LoadData()
         {
-#if INSTALLED_NEWTONSOFTJSON
             // Create new file if one doesn't exist
             if (!File.Exists(fullPath))
             {
@@ -196,7 +251,7 @@ namespace Esper.ESave
 
                 Save();
             }
-            
+
             if (isJson)
             {
                 string json;
@@ -221,7 +276,7 @@ namespace Esper.ESave
                 var jsonSerializerSettings = new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.All,
-                    TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full                  
+                    TypeNameAssemblyFormatHandling = TypeNameAssemblyFormatHandling.Full
                 };
 
                 saveData = JsonConvert.DeserializeObject<Dictionary<string, SavableObject>>(json, jsonSerializerSettings);
@@ -231,7 +286,6 @@ namespace Esper.ESave
                     saveData = new();
                 }
             }
-#endif
         }
 
         /// <summary>
