@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveFileData:
     fileName: Example_Save
-    saveLocation: 1
+    saveLocation: 0
     filePath: StylishEsper/ESave/Examples/Any RP Examples
     fileType: 0
     encryptionMethod: 1
