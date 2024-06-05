@@ -1592,7 +1592,7 @@ MonoBehaviour:
     aesKey: KXBwqJJpaUyunfvM
     aesIV: AP3Ke5u3XEuhUToA
     addToStorage: 0
-    backgroundTask: 1
+    backgroundTask: 0
 --- !u!4 &2056217585
 Transform:
   m_ObjectHideFlags: 0

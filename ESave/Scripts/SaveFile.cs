@@ -167,7 +167,7 @@ namespace Esper.ESave
         /// if backgroundTask is true.
         /// </summary>
         /// <returns>The save operation or null if there is an ongoing operation.</returns>
-        public SaveFileOperation Save() 
+        public SaveFileOperation Save()
         {
 #if INSTALLED_NEWTONSOFTJSON
             if (isOperationOngoing)
@@ -178,6 +178,8 @@ namespace Esper.ESave
             operation = new SaveFileOperation(SaveData, backgroundTask);
             operation.Start();
             return operation;
+#else
+            return null;
 #endif
         }
 
@@ -197,6 +199,8 @@ namespace Esper.ESave
             operation = new SaveFileOperation(LoadData, backgroundTask);
             operation.Start();
             return operation;
+#else
+            return null;
 #endif
         }
 
@@ -205,6 +209,7 @@ namespace Esper.ESave
         /// </summary>
         private void SaveData()
         {
+#if INSTALLED_NEWTONSOFTJSON
             if (isJson)
             {
                 var jsonSerializerSettings = new JsonSerializerSettings()
@@ -234,6 +239,7 @@ namespace Esper.ESave
             }
 
             Debug.Log($"Save Path: {fullPath}");
+#endif
         }
 
         /// <summary>
@@ -241,6 +247,7 @@ namespace Esper.ESave
         /// </summary>
         private void LoadData()
         {
+#if INSTALLED_NEWTONSOFTJSON
             // Create new file if one doesn't exist
             if (!File.Exists(fullPath))
             {
@@ -286,6 +293,7 @@ namespace Esper.ESave
                     saveData = new();
                 }
             }
+#endif
         }
 
         /// <summary>
