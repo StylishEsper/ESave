@@ -17,6 +17,5 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 ### v1.0.3
 [Download Link](https://github.com/StylishEsper/ESave/releases/download/v1.0.3/ESave_v1.0.3.unitypackage)
 
-## Releases
 ### v1.0.2
 [Download Link](https://github.com/StylishEsper/ESave/releases/download/v1.0.2/ESave_v1.0.2.unitypackage)
