@@ -220,7 +220,6 @@ namespace Esper.ESave
 
                 string json = JsonConvert.SerializeObject(saveData, Formatting.Indented, jsonSerializerSettings);
 
-
                 // Encryption method
                 switch (encryptionMethod)
                 {

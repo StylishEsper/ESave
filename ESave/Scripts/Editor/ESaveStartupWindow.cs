@@ -13,14 +13,14 @@ using UnityEditor.PackageManager;
 namespace Esper.ESave.Editor
 {
     [InitializeOnLoad]
-    public class StartupWindow : EditorWindow
+    public class ESaveStartupWindow : EditorWindow
     {
         private const string alreadyShownKey = "com.stylishesper.esave.startup_window_shown";
 
-        private static StartupWindow window;
+        private static ESaveStartupWindow window;
         private static AddRequest request;
 
-        static StartupWindow()
+        static ESaveStartupWindow()
         {
             EditorApplication.delayCall += ShowOnStartup;
         }
@@ -40,7 +40,7 @@ namespace Esper.ESave.Editor
         public static void ShowInstallerWindow()
         {
 #if !INSTALLED_NEWTONSOFTJSON
-            window = GetWindow<StartupWindow>();
+            window = GetWindow<ESaveStartupWindow>();
             window.maxSize = new Vector2(500f, 100f);
             window.minSize = window.maxSize;
             window.titleContent = new GUIContent("Newtonsoft JSON Installer");
@@ -50,7 +50,7 @@ namespace Esper.ESave.Editor
         [MenuItem("Window/ESave/Install Newtonsoft JSON")]
         public static void ShowInstallerWindowMenu()
         {
-            window = GetWindow<StartupWindow>();
+            window = GetWindow<ESaveStartupWindow>();
             window.maxSize = new Vector2(500f, 100f);
             window.minSize = window.maxSize;
             window.titleContent = new GUIContent("Newtonsoft JSON Installer");
@@ -58,7 +58,7 @@ namespace Esper.ESave.Editor
 
         private void OnGUI()
         {
-            GUILayout.Label("Newtonsoft JSON is required for USave.");
+            GUILayout.Label("Newtonsoft JSON is required for ESave.");
 
             if (GUILayout.Button("Install Newtonsoft JSON"))
             {
