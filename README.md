@@ -1,7 +1,7 @@
 # ESave
 Your ultimate, cost-free solution for seamless saving and loading in your game development projects. Whether you're a seasoned developer or just starting out, this tool empowers you to effortlessly manage game data with ease.
 
-[Documentation](https://stylishesper.gitbook.io/esave/) | [Support](https://www.stylishesper.com/contact) | [Discord](https://discord.gg/wNSuJgj7)
+[Documentation](https://stylishesper.gitbook.io/esave/) | [Support](https://www.stylishesper.com/contact) | [Discord](https://discord.gg/XTVwSEMvKC)
 
 ## Features
 - Save any serializable data type
