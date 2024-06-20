@@ -14,6 +14,9 @@ Your ultimate, cost-free solution for seamless saving and loading in your game d
 - Choose different paths for each save file
 
 ## Releases
+### v1.0.5
+[Download Link](https://github.com/StylishEsper/ESave/releases/download/v1.0.5/ESave_v1.0.5.unitypackage)
+
 ### v1.0.4
 [Download Link](https://github.com/StylishEsper/ESave/releases/download/v1.0.4/ESave_v1.0.4.unitypackage)
 
