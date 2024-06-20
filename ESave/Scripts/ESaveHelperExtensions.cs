@@ -132,6 +132,58 @@ namespace Esper.ESave
         }
 
         /// <summary>
+        /// Converts a Vector2 to a SavableVector.
+        /// </summary>
+        /// <param name="v2">The Vector2.</param>
+        /// <returns>The savable vector.</returns>
+        public static SavableVector ToSavable(this Vector2 v2)
+        {
+            return new SavableVector(v2);
+        }
+
+        /// <summary>
+        /// Converts a Vector3 to a SavableVector.
+        /// </summary>
+        /// <param name="v3">The Vector3.</param>
+        /// <returns>The savable vector.</returns>
+        public static SavableVector ToSavable(this Vector3 v3)
+        {
+            return new SavableVector(v3);
+        }
+
+        /// <summary>
+        /// Converts a Vector4 to a SavableVector.
+        /// </summary>
+        /// <param name="v4">The Vector4.</param>
+        /// <returns>The savable vector.</returns>
+        public static SavableVector ToSavable(this Vector4 v4)
+        {
+            return new SavableVector(v4);
+        }
+
+        /// <summary>
+        /// Converts a Quaternion to a SavableVector.
+        /// 
+        /// NOTE: Quaternions are similar to Vector4 (they have x, y, z, and w values).
+        /// </summary>
+        /// <param name="q">The Quaternion.</param>
+        /// <returns>The savable vector.</returns>
+        public static SavableVector ToSavable(this Quaternion q)
+        {
+            return new SavableVector(q);
+        }
+
+        /// <summary>
+        /// Converts a Transform to a SavableTransform.
+        /// </summary>
+        /// <param name="transform">The Transform.</param>
+        /// <returns>The savable transform.</returns>
+        public static SavableTransform ToSavable(this Transform transform)
+        {
+            return new SavableTransform(transform);
+        }
+
+        /// <summary>
         /// Copies the position, rotation, and scale of another transform.
         /// </summary>
         /// <param name="transform">This transform.</param>
@@ -146,17 +198,17 @@ namespace Esper.ESave
         }
 
         /// <summary>
-        /// Copies the position, rotation, and scale of another transform.
+        /// Copies the position, rotation, and scale of a savable transform.
         /// </summary>
         /// <param name="transform">This transform.</param>
-        /// <param name="other">The transform to copy.</param>
+        /// <param name="other">The savable transform to copy.</param>
         public static void CopyTransformValues(this Transform transform, SavableTransform other)
         {
-            transform.position = other.position.ToVector3();
-            transform.localPosition = other.localPosition.ToVector3();
-            transform.rotation = other.rotation.ToQuaternion();
-            transform.localRotation = other.localRotation.ToQuaternion();
-            transform.localScale = other.localScale.ToVector3();
+            transform.position = other.position.vector3Value;
+            transform.localPosition = other.localPosition.vector3Value;
+            transform.rotation = other.rotation.quaternionValue;
+            transform.localRotation = other.localRotation.quaternionValue;
+            transform.localScale = other.localScale.vector3Value;
         }
     }
 }

@@ -1,7 +1,7 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
-// Description: Savable transform object. Only saves the position
+// Last Updated: June 2024
+// Description: Savable transform object.
 //***************************************************************************************
 
 using UnityEngine;
@@ -9,20 +9,20 @@ using UnityEngine;
 namespace Esper.ESave.SavableObjects
 {
     [System.Serializable]
-    public class SavableTransform
+    public class SavableTransform : SavableObject
     {
-        public float[] position;
-        public float[] localPosition;
-        public float[] rotation;
-        public float[] localRotation;
-        public float[] localScale;
+        public SavableVector position;
+        public SavableVector localPosition;
+        public SavableVector rotation;
+        public SavableVector localRotation;
+        public SavableVector localScale;
 
         /// <summary>
         /// Default constructor.
         /// </summary>
         public SavableTransform()
         {
-
+            
         }
 
         /// <summary>
@@ -31,11 +31,11 @@ namespace Esper.ESave.SavableObjects
         /// <param name="transform">The transform.</param>
         public SavableTransform(Transform transform) 
         {
-            position = transform.position.ToFloat3();
-            localPosition = transform.localPosition.ToFloat3();
-            rotation = transform.rotation.ToFloat4();
-            localRotation = transform.localRotation.ToFloat4();
-            localScale = transform.localScale.ToFloat3();
+            position = transform.position.ToSavable();
+            localPosition = transform.localPosition.ToSavable();
+            rotation = transform.rotation.ToSavable();
+            localRotation = transform.localRotation.ToSavable();
+            localScale = transform.localScale.ToSavable();
         }
     }
 }
