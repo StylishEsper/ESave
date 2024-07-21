@@ -18,7 +18,7 @@ namespace Esper.ESave.Editor
         private const string alreadyShownKey = "com.stylishesper.esave.startup_window_shown";
 
         private static ESaveStartupWindow window;
-        private static AddRequest request;
+        private static AddRequest newtonsoftJsonRequest;
 
         static ESaveStartupWindow()
         {
@@ -68,22 +68,22 @@ namespace Esper.ESave.Editor
 
         private static void InstallNewtonsoftJSON()
         {
-            request = Client.Add("com.unity.nuget.newtonsoft-json");
+            newtonsoftJsonRequest = Client.Add("com.unity.nuget.newtonsoft-json");
             EditorApplication.update += Progress;
             window.Close();
         }
 
         private static void Progress()
         {
-            if (request.IsCompleted)
+            if (newtonsoftJsonRequest.IsCompleted)
             {
-                if (request.Status == StatusCode.Success)
+                if (newtonsoftJsonRequest.Status == StatusCode.Success)
                 {
-                    Debug.Log("Installed: " + request.Result.packageId);
+                    Debug.Log("Installed: " + newtonsoftJsonRequest.Result.packageId);
                 }
-                else if (request.Status >= StatusCode.Failure)
+                else if (newtonsoftJsonRequest.Status >= StatusCode.Failure)
                 {
-                    Debug.Log(request.Error.message);
+                    Debug.Log(newtonsoftJsonRequest.Error.message);
                 }
 
                 EditorApplication.update -= Progress;

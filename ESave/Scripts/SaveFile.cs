@@ -86,6 +86,8 @@ namespace Esper.ESave
 
         public bool isOperationOngoing { get => operation != null && operation.state == SaveFileOperation.OperationState.Ongoing; }
 
+        private static bool cultureInfoIsSet;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -93,6 +95,12 @@ namespace Esper.ESave
         /// <param name="shouldExist">If this save file should already exist in the user's system. Default: true</param>
         public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist = false)
         {
+            if (!cultureInfoIsSet)
+            {
+                ESaveUtility.SetCulture("en-US");
+                cultureInfoIsSet = true;
+            }
+
             this.saveFileSetupData = saveFileSetupData;
             SetupFile(shouldExist);
         }

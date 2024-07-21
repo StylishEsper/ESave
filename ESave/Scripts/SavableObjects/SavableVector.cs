@@ -14,7 +14,7 @@ namespace Esper.ESave.SavableObjects
     {
         public float x; 
         public float y;
-        public float z; 
+        public float z;
         public float w;
 
         /// <summary>
@@ -62,6 +62,18 @@ namespace Esper.ESave.SavableObjects
             get
             {
                 return new Quaternion(x, y, z, w);
+            }
+        }
+
+        /// <summary>
+        /// Returns the savable vector as a Color.
+        /// </summary>
+        [JsonIgnore]
+        public Color colorValue
+        {
+            get
+            {
+                return new Color(x, y, z, w);
             }
         }
 
@@ -134,6 +146,18 @@ namespace Esper.ESave.SavableObjects
             y = q.y;
             z = q.z;
             w = q.w;
+        }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="color">The color.</param>
+        public SavableVector(Color color)
+        {
+            x = color.r;
+            y = color.g;
+            z = color.b;
+            w = color.a;
         }
     }
 }

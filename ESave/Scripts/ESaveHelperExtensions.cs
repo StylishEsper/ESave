@@ -174,6 +174,18 @@ namespace Esper.ESave
         }
 
         /// <summary>
+        /// Converts a Color to a SavableVector.
+        /// 
+        /// NOTE: Colors are similar to Vector4 (x = r, y = g, z = b, w = a).
+        /// </summary>
+        /// <param name="c">The Color.</param>
+        /// <returns>The savable vector.</returns>
+        public static SavableVector ToSavable(this Color c)
+        {
+            return new SavableVector(c);
+        }
+
+        /// <summary>
         /// Converts a Transform to a SavableTransform.
         /// </summary>
         /// <param name="transform">The Transform.</param>
