@@ -5,6 +5,8 @@
 //***************************************************************************************
 
 using System;
+using System.Globalization;
+using System.Threading;
 using UnityEngine;
 
 public static class ESaveUtility
@@ -17,7 +19,13 @@ public static class ESaveUtility
     {
         try
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(name);
+            CultureInfo cultureInfo = new CultureInfo(name);
+
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
         }
         catch (Exception ex)
         {
