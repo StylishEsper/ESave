@@ -42,7 +42,11 @@ namespace Esper.ESave
         /// <summary>
         /// The active save file operation.
         /// </summary>
-        public SaveFileOperation operation { get; private set; }
+        public SaveFileOperation operation { get => saveOperation != null ? saveOperation : loadOperation; }
+
+        private SaveFileOperation saveOperation;
+
+        private SaveFileOperation loadOperation;
 
         /// <summary>
         /// The file name.
@@ -86,8 +90,6 @@ namespace Esper.ESave
 
         public bool isOperationOngoing { get => operation != null && operation.state == SaveFileOperation.OperationState.Ongoing; }
 
-        private static bool cultureInfoIsSet;
-
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -95,12 +97,6 @@ namespace Esper.ESave
         /// <param name="shouldExist">If this save file should already exist in the user's system. Default: true</param>
         public SaveFile(SaveFileSetupData saveFileSetupData, bool shouldExist = false)
         {
-            if (!cultureInfoIsSet)
-            {
-                ESaveUtility.SetCulture("en-US");
-                cultureInfoIsSet = true;
-            }
-
             this.saveFileSetupData = saveFileSetupData;
             SetupFile(shouldExist);
         }
@@ -174,18 +170,20 @@ namespace Esper.ESave
         /// Saves this file in the user's system. The file will be saved in the background
         /// if backgroundTask is true.
         /// </summary>
+        /// <param name="ignoreExistingOperation">If this is true, an existing operation will not prevent this
+        /// one from running. Default: false.</param>
         /// <returns>The save operation or null if there is an ongoing operation.</returns>
-        public SaveFileOperation Save()
+        public SaveFileOperation Save(bool ignoreExistingOperation = false)
         {
 #if INSTALLED_NEWTONSOFTJSON
-            if (isOperationOngoing)
+            if (!ignoreExistingOperation && isOperationOngoing)
             {
                 return null;
             }
 
-            operation = new SaveFileOperation(SaveData, backgroundTask);
-            operation.Start();
-            return operation;
+            saveOperation = new SaveFileOperation(SaveData, backgroundTask);
+            saveOperation.Start();
+            return saveOperation;
 #else
             return null;
 #endif
@@ -195,18 +193,20 @@ namespace Esper.ESave
         /// Loads data from the appropriate file in the user's system. The file will be loaded
         /// in the background if backgroundTask is true.
         /// </summary>
+        /// <param name="ignoreExistingOperation">If this is true, an existing operation will not prevent this
+        /// one from running. Default: false.</param>
         /// <returns>The load operation or null if there is an ongoing operation.</returns>
-        public SaveFileOperation Load()
+        public SaveFileOperation Load(bool ignoreExistingOperation = false)
         {
 #if INSTALLED_NEWTONSOFTJSON
-            if (isOperationOngoing)
+            if (!ignoreExistingOperation && isOperationOngoing)
             {
                 return null;
             }
 
-            operation = new SaveFileOperation(LoadData, backgroundTask);
-            operation.Start();
-            return operation;
+            loadOperation = new SaveFileOperation(LoadData, backgroundTask);
+            loadOperation.Start();
+            return loadOperation;
 #else
             return null;
 #endif
@@ -263,7 +263,7 @@ namespace Esper.ESave
                     Directory.CreateDirectory(directory);
                 }
 
-                Save();
+                Save(true);
             }
 
             if (isJson)
@@ -391,13 +391,14 @@ namespace Esper.ESave
         /// </summary>
         /// <typeparam name="T">The type.</typeparam>
         /// <param name="id">The ID of the data.</param>
+        /// <param name="defaultValue">A default value to fallback to in case the data doesn't exist.</param>
         /// <returns>The data with the ID or null if it doesn't exist.</returns>
-        public T GetData<T>(string id)
+        public T GetData<T>(string id, T defaultValue = default)
         {
             if (!HasData(id))
             {
                 Debug.LogWarning($"Save File: data with the ID {id} does not exist.");
-                return default;
+                return defaultValue;
             }
 
             return saveData[id].GetValue<T>();

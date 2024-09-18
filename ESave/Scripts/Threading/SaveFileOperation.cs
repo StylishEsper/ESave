@@ -28,6 +28,8 @@ namespace Esper.ESave.Threading
         /// </summary>
         public UnityEvent onOperationEnded { get; private set; } = new();
 
+        private static SynchronizationContext mainThreadContext;
+
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -67,12 +69,15 @@ namespace Esper.ESave.Threading
             }
             else
             {
-                var mainThreadContext = SynchronizationContext.Current;
+                if (mainThreadContext == null)
+                {
+                    mainThreadContext = SynchronizationContext.Current;
+                }
 
                 Thread thread = new(() =>
                 {
                     operation();
-                    mainThreadContext.Post(_ => OnOperationEnded(), null);   
+                    mainThreadContext.Post(_ => OnOperationEnded(), null);
                 });
 
                 thread.IsBackground = true;
