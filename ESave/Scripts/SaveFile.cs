@@ -304,6 +304,35 @@ namespace Esper.ESave
         }
 
         /// <summary>
+        /// Permanently deletes the save file from the user's system. Use with caution, as this cannot be undone.
+        /// </summary>
+        public void DeleteFile()
+        {
+            // Check if the file exists in the path
+            if (File.Exists(fullPath))
+            {
+                // Remove from the save storage if it exists in it
+                if (SaveStorage.instance.ContainsFile(this))
+                {
+                    SaveStorage.instance.RemoveSave(this);
+                }
+
+                saveData.Clear();
+
+                File.Delete(fullPath);
+            }
+        }
+
+        /// <summary>
+        /// Completes removes all data from the file. Use with caution, as this cannot be undone.
+        /// </summary>
+        public void EmptyFile()
+        {
+            saveData.Clear();
+            Save(true);
+        }
+
+        /// <summary>
         /// Removes data by ID.
         /// </summary>
         /// <param name="id">The savable object ID.</param>

@@ -5,6 +5,7 @@
 //***************************************************************************************
 
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Esper.ESave
@@ -56,7 +57,7 @@ namespace Esper.ESave
         {
             if (saves.ContainsKey(saveFile.fileName))
             {
-                Debug.LogWarning($"Save System: a save file with the name {saveFile.fileName} seems to " +
+                Debug.LogWarning($"Save Storage: a save file with the name {saveFile.fileName} seems to " +
                     $"already exists. Please ensure all file names are unique.");
                 return;
             }
@@ -74,7 +75,7 @@ namespace Esper.ESave
         {
             if (!saves.ContainsKey(saveFile.fileName))
             {
-                Debug.LogWarning($"Save System: a save file with the name {saveFile.fileName} does not exist.");
+                Debug.LogWarning($"Save Storage: a save file with the name {saveFile.fileName} does not exist.");
                 return;
             }
 
@@ -134,15 +135,31 @@ namespace Esper.ESave
         /// </summary>
         /// <param name="fileName">The file name.</param>
         /// <returns>The save file or null if none with the provided name exist.</returns>
-        public  SaveFile GetSaveByFileName(string fileName)
+        public SaveFile GetSaveByFileName(string fileName)
         {
             if (!ContainsKey(fileName))
             {
-                Debug.LogWarning($"Save System: a save file with the name {fileName} does not exist.");
+                Debug.LogWarning($"Save Storage: a save file with the name {fileName} does not exist.");
                 return null;
             }
 
             return saves[fileName];
+        }
+
+        /// <summary>
+        /// Gets a save file at a specific index.
+        /// </summary>
+        /// <param name="index">The index.</param>
+        /// <returns>The save file or null if the index is out of range.</returns>
+        public SaveFile GetSaveAtIndex(int index)
+        {
+            if (index < 0 || index >= saves.Count)
+            {
+                Debug.LogWarning($"Save Storage: index out of range.");
+                return null;
+            }
+
+            return saves.Values.ElementAt(index);
         }
     }
 }
