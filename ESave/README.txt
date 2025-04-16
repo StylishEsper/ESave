@@ -1,4 +1,4 @@
-ESave Copyright (c) 2024 Stylish Esper
+ESave Copyright (c) 2025 Stylish Esper
 
 // EXAMPLE //
 Please open the example scene in StylishEsper/ESave/Example/Scenes to understand how ESave can be set up.

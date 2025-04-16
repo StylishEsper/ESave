@@ -9,3 +9,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 283140
+  packageName: ESave - Save System for Unity
+  packageVersion: 1.0.8
+  assetPath: Assets/StylishEsper/ESave/Scripts/ESaveHelperExtensions.cs
+  uploadId: 721293

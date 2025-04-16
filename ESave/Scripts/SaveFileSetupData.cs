@@ -1,13 +1,14 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
-// Description: Save file data.
 //***************************************************************************************
 
 using Esper.ESave.Encryption;
 
 namespace Esper.ESave
 {
+    /// <summary>
+    /// Data used to set up a save file.
+    /// </summary>
     [System.Serializable]
     public class SaveFileSetupData
     {
@@ -60,8 +61,8 @@ namespace Esper.ESave
         /// </summary>
         public void GenerateAESTokens()
         {
-            aesKey = ESaveEncryption.GenerateRandomToken(16);
-            aesIV = ESaveEncryption.GenerateRandomToken(16);
+            aesKey = ESaveEncryption.GenerateKey().ToBase64String();
+            aesIV = ESaveEncryption.GenerateIV().ToBase64String();
         }
 
         /// <summary>

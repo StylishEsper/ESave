@@ -236,7 +236,7 @@ namespace Esper.ESave
                         break;
 
                     case EncryptionMethod.AES:
-                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.ToBytes(), saveFileSetupData.aesIV.ToBytes()));
+                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.FromBase64String(), saveFileSetupData.aesIV.FromBase64String()));
                         break;
 
                     default:
@@ -279,7 +279,7 @@ namespace Esper.ESave
 
                     case EncryptionMethod.AES:
                         var cipher = File.ReadAllBytes(fullPath);
-                        json = cipher.AESDecrypt(saveFileSetupData.aesKey.ToBytes(), saveFileSetupData.aesIV.ToBytes());
+                        json = cipher.AESDecrypt(saveFileSetupData.aesKey.FromBase64String(), saveFileSetupData.aesIV.FromBase64String());
                         break;
 
                     default:

@@ -1,7 +1,5 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: April 2024
-// Description: Encrypt/decrypts data.
 //***************************************************************************************
 
 using System;
@@ -11,6 +9,9 @@ using System.Text;
 
 namespace Esper.ESave.Encryption
 {
+    /// <summary>
+    /// Encrypt/decrypts data.
+    /// </summary>
     public static class ESaveEncryption
     {
         /// <summary>
@@ -34,30 +35,25 @@ namespace Esper.ESave.Encryption
         }
 
         /// <summary>
-        /// Generates a random string.
+        /// Generates an AES key.
         /// </summary>
-        /// <param name="maxTokenLength">The max token length. Default: -1 (no max)</param>
-        /// <returns>A randomly generated string.</returns>
-        public static string GenerateRandomToken(int maxTokenLength = -1)
+        /// <returns>A randomly generated AES key.</returns>
+        public static byte[] GenerateKey()
         {
-            Guid guid = Guid.NewGuid();
-            string guidString = Convert.ToBase64String(guid.ToByteArray());
-            guidString = guidString.Replace("=", "");
-            guidString = guidString.Replace("+", "");
-            guidString = guidString.Replace("/", "");
+            var aes = Aes.Create();
+            aes.GenerateKey();
+            return aes.Key;
+        }
 
-            string token;
-
-            if (maxTokenLength != -1 && guidString.Length > maxTokenLength)
-            {
-                token = guidString.Substring(0, maxTokenLength);
-            }
-            else
-            {
-                token = guidString;
-            }
-
-            return token;
+        /// <summary>
+        /// Generates an AES IV.
+        /// </summary>
+        /// <returns>A randomly generated AES IV.</returns>
+        public static byte[] GenerateIV()
+        {
+            var aes = Aes.Create();
+            aes.GenerateIV();
+            return aes.IV;
         }
 
         /// <summary>
