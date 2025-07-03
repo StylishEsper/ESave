@@ -1,7 +1,5 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: June 2024
-// Description: For ease of saving vectors and quaternions.
 //***************************************************************************************
 
 using Newtonsoft.Json;
@@ -9,6 +7,9 @@ using UnityEngine;
 
 namespace Esper.ESave.SavableObjects
 {
+    /// <summary>
+    /// A savable version of a Vector, Quaternion, and Color.
+    /// </summary>
     [System.Serializable]
     public class SavableVector
     {

@@ -1,13 +1,14 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: June 2024
-// Description: Savable transform object.
 //***************************************************************************************
 
 using UnityEngine;
 
 namespace Esper.ESave.SavableObjects
 {
+    /// <summary>
+    /// A savable version of a Trasnform.
+    /// </summary>
     [System.Serializable]
     public class SavableTransform : SavableObject
     {
@@ -31,11 +32,16 @@ namespace Esper.ESave.SavableObjects
         /// <param name="transform">The transform.</param>
         public SavableTransform(Transform transform) 
         {
-            position = transform.position.ToSavable();
-            localPosition = transform.localPosition.ToSavable();
-            rotation = transform.rotation.ToSavable();
-            localRotation = transform.localRotation.ToSavable();
-            localScale = transform.localScale.ToSavable();
+            position = transform.position;
+            localPosition = transform.localPosition;
+            rotation = transform.rotation;
+            localRotation = transform.localRotation;
+            localScale = transform.localScale;
+        }
+
+        public static implicit operator SavableTransform(Transform t)
+        {
+            return new SavableTransform(t);
         }
     }
 }
