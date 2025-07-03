@@ -159,5 +159,30 @@ namespace Esper.ESave.SavableObjects
             z = color.b;
             w = color.a;
         }
+
+        public static implicit operator SavableVector(Vector2 v2)
+        {
+            return new SavableVector(v2);
+        }
+
+        public static implicit operator SavableVector(Vector3 v3)
+        {
+            return new SavableVector(v3);
+        }
+
+        public static implicit operator SavableVector(Vector4 v4)
+        {
+            return new SavableVector(v4);
+        }
+
+        public static implicit operator SavableVector(Quaternion q)
+        {
+            return new SavableVector(q);
+        }
+
+        public static implicit operator SavableVector(Color c)
+        {
+            return new SavableVector(c);
+        }
     }
 }

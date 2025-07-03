@@ -1,7 +1,5 @@
 //***************************************************************************************
 // Writer: Stylish Esper
-// Last Updated: June 2024
-// Description: A save file contains savable data.
 //***************************************************************************************
 
 using Esper.ESave.SavableObjects;
@@ -19,6 +17,9 @@ using Esper.ESave.Threading;
 
 namespace Esper.ESave
 {
+    /// <summary>
+    /// A save file contains savable data.
+    /// </summary>
     public class SaveFile
     {
         private Dictionary<string, SavableObject> saveData = new();
@@ -162,7 +163,7 @@ namespace Esper.ESave
         /// <param name="saveFileSetupData">The save file setup data.</param>
         public void SetSetupData(SaveFileSetupData saveFileSetupData)
         {
-            this.saveFileSetupData= saveFileSetupData;
+            this.saveFileSetupData = saveFileSetupData;
             SetupFile();
         }
 
