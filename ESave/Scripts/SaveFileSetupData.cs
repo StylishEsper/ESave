@@ -61,8 +61,8 @@ namespace Esper.ESave
         /// </summary>
         public void GenerateAESTokens()
         {
-            aesKey = ESaveEncryption.GenerateKey().ToBase64String();
-            aesIV = ESaveEncryption.GenerateIV().ToBase64String();
+            aesKey = ESaveEncryption.GenerateKey().ToAesString();
+            aesIV = ESaveEncryption.GenerateIV().ToAesString();
         }
 
         /// <summary>

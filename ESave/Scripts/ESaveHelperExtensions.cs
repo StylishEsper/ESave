@@ -224,25 +224,5 @@ namespace Esper.ESave
             transform.localRotation = other.localRotation.quaternionValue;
             transform.localScale = other.localScale.vector3Value;
         }
-
-        /// <summary>
-        /// Converts to a base 64 string.
-        /// </summary>
-        /// <param name="bytes">The byte array.</param>
-        /// <returns>The byte array as a base 64 string.</returns>
-        public static string ToBase64String(this byte[] bytes)
-        {
-            return Convert.ToBase64String(bytes);
-        }
-
-        /// <summary>
-        /// Converts to a byte array.
-        /// </summary>
-        /// <param name="s">The string.</param>
-        /// <returns>The string as a byte array.</returns>
-        public static byte[] FromBase64String(this string s)
-        {
-            return Convert.FromBase64String(s);
-        }
     }
 }

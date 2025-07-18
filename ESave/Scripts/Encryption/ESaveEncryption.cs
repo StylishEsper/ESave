@@ -15,23 +15,92 @@ namespace Esper.ESave.Encryption
     public static class ESaveEncryption
     {
         /// <summary>
+        /// Converts a byte array to a string using ASCII encoding.
+        /// </summary>
+        /// <param name="bytes">The bytes.</param>
+        /// <returns>A string.</returns>
+        public static string ToASCIIString(this byte[] bytes)
+        {
+            return Encoding.ASCII.GetString(bytes);
+        }
+
+        /// <summary>
         /// Converts a string to bytes using ASCII encoding.
         /// </summary>
         /// <param name="s">The string.</param>
         /// <returns>Byte array.</returns>
-        public static byte[] ToBytes(this string s)
+        public static byte[] ToASCIIBytes(this string s)
         {
             return Encoding.ASCII.GetBytes(s);
         }
 
         /// <summary>
-        /// Converts a byte array to a string using ASCII encoding.
+        /// Converts to a base 64 string.
+        /// </summary>
+        /// <param name="bytes">The byte array.</param>
+        /// <returns>The byte array as a base 64 string.</returns>
+        public static string ToBase64String(this byte[] bytes)
+        {
+            return Convert.ToBase64String(bytes);
+        }
+
+        /// <summary>
+        /// Converts to a byte array.
+        /// </summary>
+        /// <param name="s">The string.</param>
+        /// <returns>The string as a byte array.</returns>
+        public static byte[] ToBase64Bytes(this string s)
+        {
+            return Convert.FromBase64String(s);
+        }
+
+        /// <summary>
+        /// Converts a byte array to an AES string if possible.
         /// </summary>
         /// <param name="bytes">The bytes.</param>
-        /// <returns>A string.</returns>
-        public static string ToString(this byte[] bytes)
+        /// <returns>The bytes as an AES string.</returns>
+        public static string ToAesString(this byte[] bytes)
         {
-            return Encoding.ASCII.GetString(bytes);
+            try
+            {
+                return ToBase64String(bytes);
+            }
+            catch
+            {
+                return ToASCIIString(bytes);
+            }
+        }
+
+        /// <summary>
+        /// Converts a string to an AES byte array if possible.
+        /// </summary>
+        /// <param name="s">The string.</param>
+        /// <returns>The string as an AES byte array.</returns>
+        public static byte[] ToAesBytes(this string s)
+        {
+            byte[] bytes = null;
+            bool useFallback = false;
+
+            try
+            {
+                bytes = ToBase64Bytes(s);
+
+                if (bytes.Length != 16 && bytes.Length != 24 && bytes.Length != 32)
+                {
+                    useFallback = true;
+                }
+            }
+            catch
+            {
+                useFallback = true;
+            }
+
+            if (useFallback)
+            {
+                bytes = ToASCIIBytes(s);
+            }
+
+            return bytes;
         }
 
         /// <summary>

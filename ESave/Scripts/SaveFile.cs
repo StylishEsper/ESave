@@ -14,6 +14,7 @@ using UnityEngine;
 using static Esper.ESave.SaveFileSetupData;
 using Esper.ESave.Encryption;
 using Esper.ESave.Threading;
+using System.Text;
 
 namespace Esper.ESave
 {
@@ -237,7 +238,7 @@ namespace Esper.ESave
                         break;
 
                     case EncryptionMethod.AES:
-                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.FromBase64String(), saveFileSetupData.aesIV.FromBase64String()));
+                        File.WriteAllBytes(fullPath, json.AESEncrypt(saveFileSetupData.aesKey.ToAesBytes(), saveFileSetupData.aesIV.ToAesBytes()));
                         break;
 
                     default:
@@ -280,7 +281,7 @@ namespace Esper.ESave
 
                     case EncryptionMethod.AES:
                         var cipher = File.ReadAllBytes(fullPath);
-                        json = cipher.AESDecrypt(saveFileSetupData.aesKey.FromBase64String(), saveFileSetupData.aesIV.FromBase64String());
+                        json = cipher.AESDecrypt(saveFileSetupData.aesKey.ToAesBytes(), saveFileSetupData.aesIV.ToAesBytes());
                         break;
 
                     default:
