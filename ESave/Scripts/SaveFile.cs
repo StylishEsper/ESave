@@ -127,7 +127,7 @@ namespace Esper.ESave
                      break;
             }
 
-            if (saveFileSetupData.addToStorage && !SaveStorage.instance.ContainsKey(fileName))
+            if (saveFileSetupData.addToStorage && SaveStorage.instance && !SaveStorage.instance.ContainsKey(fileName))
             {
                 // Ensure the file still exists and if not, remove the path from storage
                 if (!File.Exists(fullPath) && shouldExist)
@@ -314,7 +314,7 @@ namespace Esper.ESave
             if (File.Exists(fullPath))
             {
                 // Remove from the save storage if it exists in it
-                if (SaveStorage.instance.ContainsFile(this))
+                if (SaveStorage.instance && SaveStorage.instance.ContainsFile(this))
                 {
                     SaveStorage.instance.RemoveSave(this);
                 }
