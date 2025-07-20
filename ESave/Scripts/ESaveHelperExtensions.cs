@@ -44,6 +44,36 @@ namespace Esper.ESave
         }
 
         /// <summary>
+        /// Converts a Vector4 to a float array.
+        /// </summary>
+        /// <param name="v4">This Vector4.</param>
+        /// <returns>Float array that represents the vector.</returns>
+        public static float[] ToFloat4(this Vector4 v4)
+        {
+            return new float[] { v4.x, v4.y, v4.z, v4.w };
+        }
+
+        /// <summary>
+        /// Converts a Vector3 to a float array.
+        /// </summary>
+        /// <param name="v3">This Vector3.</param>
+        /// <returns>Float array that represents the vector.</returns>
+        public static float[] ToFloat4(this Vector3 v3)
+        {
+            return new float[] { v3.x, v3.y, v3.z, 0 };
+        }
+
+        /// <summary>
+        /// Converts a Vector2 to a float array.
+        /// </summary>
+        /// <param name="v2">This Vector2.</param>
+        /// <returns>Float array that represents the vector.</returns>
+        public static float[] ToFloat4(this Vector2 v2)
+        {
+            return new float[] { v2.x, v2.y, 0, 0 };
+        }
+
+        /// <summary>
         /// Converts a Vector3 to a float array.
         /// </summary>
         /// <param name="v3">This Vector3.</param>
@@ -61,6 +91,16 @@ namespace Esper.ESave
         public static float[] ToFloat3(this Vector2 v2)
         {
             return new float[] { v2.x, v2.y, 0 };
+        }
+
+        /// <summary>
+        /// Converts a float array to a Vector4.
+        /// </summary>
+        /// <param name="f4">This float array.</param>
+        /// <returns>Vector4 that represents the float array.</returns>
+        public static Vector4 ToVector4(this float[] f4)
+        {
+            return new Vector4(f4[0], f4[1], f4[2], f4[3]);
         }
 
         /// <summary>
